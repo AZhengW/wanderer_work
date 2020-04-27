@@ -7,7 +7,7 @@ class Xuzhu:
     def __init__(self, hp):
         self.hp = hp
         self.name = "虚竹"
-        self.power = 100
+        self.power = 50
 
     def kill_you(self):
         random1 = random.random()
