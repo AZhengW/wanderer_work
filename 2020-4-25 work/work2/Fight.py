@@ -1,12 +1,30 @@
-# s eepeplo
-# 对打:角色一:天山童姥  角色二:虚竹  角色三:丁春秋
-# 对打方法 :传入角色,角色血量,武力值
-# 对打规则:一打一,直到一方死亡为止.死亡了就调用seepeople方法,概率暴击.概率闪避.天山童姥类暴击率>丁春秋,闪避概率都是随机
-#  天山童姥类:
-#  初始hp10000,攻击力800,当血量<5000时,攻击力翻三倍,血量扣除一半,只生效一次,
-#  丁春秋类:
-#  初始hp10000,攻击力500,每回合有百分之10的几率回血.500
-#  虚竹
-#  只有血量,没有攻击力,每回合概率将人秒杀
+# 对打规则: 一对一,直到一方死亡为止,死亡了就调用seepeople方法
+# 概率暴击,概率闪避,童姥暴击率>春秋,闪避概率随机,血量小的先手(暂不考虑血量相等情况)
+from Role import XuZhu, DingChunQiu, TongLao
+
+
 class Fight:
-    def __init__(self):
+    def __init__(self, role1, role2):
+        self.role1 = role1
+        self.role2 = role2
+
+    def fight(self):
+        if self.role1.hp > self.role2.hp:
+            while True:
+                self.role1.hp = self.role1.hp - self.role2.power
+                print("{}受到了{}{}伤害,还剩{}血".format(self.role1.name, self.role2.name, self.role2.power, self.role1.hp))
+                if self.role1.hp <= 0 or self.role2.hp <= 0:
+                    print(self.role1.name+"输了,",self.role2.name+"赢了.")
+                    break
+                self.role2.hp = self.role2.hp - self.role1.power
+                print("{}受到了{}{}伤害,还剩{}血".format(self.role2.name, self.role1.name, self.role1.power, self.role2.hp))
+                if self.role1.hp <= 0 or self.role2.hp <= 0:
+                    print(self.role2.name+"输了,",self.role1.name+"赢了.")
+                    break
+                else:
+                    continue
+
+xuzhu = XuZhu.Xuzhu(5000)
+tonglao = TongLao.Tonglao(1200, 1000)
+gan = Fight(xuzhu, tonglao)
+gan.fight()

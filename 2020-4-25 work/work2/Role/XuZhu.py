@@ -7,10 +7,10 @@ class Xuzhu:
     def __init__(self, hp):
         self.hp = hp
         self.name = "虚竹"
-        self.power=0
+        self.power = 100
 
     def kill_you(self):
         random1 = random.random()
         random2 = random.random()
-        if random1>random2:
+        if random1 > random2:
             return 1
