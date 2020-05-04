@@ -15,7 +15,7 @@ class Fight:
                 print("对不起你死了,虚竹我发狂了!")  # 这是嘲讽的语句233~
             elif self.role2.baoji() == "a":  # 如果没有随机到x就判断是否随机到a,如果随机到a,武力值翻倍
                 self.role2.power = self.role2.power * 2
-                print(self.role2.name + "的武力值提升了两倍!!")
+                print(self.role2.name + "的武力值提升了两倍!!  的")
             self.role1.hp = self.role1.hp - self.role2.power  # 血量计算
             print("{}受到了{}{}伤害,还剩{}血".format(self.role1.name, self.role2.name, self.role2.power,
                                              self.role1.hp))  # 打印血量计算结果
