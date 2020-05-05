@@ -19,7 +19,7 @@ class Fight:
             self.role1.hp = self.role1.hp - self.role2.power  # 血量计算
             print("{}受到了{}{}伤害,还剩{}血".format(self.role1.name, self.role2.name, self.role2.power,
                                              self.role1.hp))  # 打印血量计算结果
-            if 3000 > self.role1.hp > 0 and self.role1.name == "童姥":  #判断血量是否到3000一下,且角色为童姥,如果是的话就调用童姥的暴怒技能
+            if 3000 > self.role1.hp > 0 and self.role1.name == "童姥":  # 判断血量是否到3000一下,且角色为童姥,如果是的话就调用童姥的暴怒技能
                 print(self.role1.bao_nu())
             if self.role1.hp <= 0 or self.role2.hp <= 0:  # 判断是否一方HP=
                 print(self.role1.name + "死了,", self.role2.name + "赢了v g .")  # 如果一方hp=0,那么把谁输谁赢打印出来 ,且结束循环
@@ -45,6 +45,6 @@ class Fight:
 
 xuzhu = XuZhu.Xuzhu(5000, 2000)
 tonglao = TongLao.Tonglao(20000, 500)
-dingchunqiu = DingChunQiu.DingChunQiu(10000,500)
+dingchunqiu = DingChunQiu.DingChunQiu(10000, 500)
 go = Fight(xuzhu, dingchunqiu)
 go.fight()
